@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const index = () => {
+const favorate = () => {
     return (
         <View>
-            <Text>index</Text>
+            <Text>favorate</Text>
         </View>
     )
 }
 
-export default index
+export default favorate
