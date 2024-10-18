@@ -6,25 +6,14 @@ import { useOAuth } from '@clerk/clerk-expo'
 import * as Linking from 'expo-linking'
 const { width, height } = Dimensions.get('window');
 
-export const useWarmUpBrowser = () => {
-    React.useEffect(() => {
-        // Warm up the android browser to improve UX
-        // https://docs.expo.dev/guides/authentication/#improving-user-experience
-        void WebBrowser.warmUpAsync()
-        return () => {
-            void WebBrowser.coolDownAsync()
-        }
-    }, [])
-}
 
-WebBrowser.maybeCompleteAuthSession()
 const LoginScreen = () => {
     useWarmUpBrowser();
     const { startOAuthFlow } = useOAuth({ strategy: 'oauth_google' })
     const onPress = useCallback(async () => {
         try {
             const { createdSessionId, signIn, signUp, setActive } = await startOAuthFlow({
-                redirectUrl: Linking.createURL('/(tabs)/home', { scheme: 'myapp' }),
+                redirectUrl: Linking.createURL('/(tabs)', { scheme: 'myapp' }),
             })
 
             if (createdSessionId) {
@@ -52,7 +41,17 @@ const LoginScreen = () => {
         </View>
     );
 };
-
+export const useWarmUpBrowser = () => {
+    React.useEffect(() => {
+        // Warm up the android browser to improve UX
+        // https://docs.expo.dev/guides/authentication/#improving-user-experience
+        void WebBrowser.warmUpAsync()
+        return () => {
+            void WebBrowser.coolDownAsync()
+        }
+    }, [])
+}
+WebBrowser.maybeCompleteAuthSession()
 const styles = StyleSheet.create({
     container: {
         flex: 1,

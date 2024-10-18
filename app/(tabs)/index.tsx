@@ -1,12 +1,16 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import Header from '@/components/Header'
+import { useUser } from '@clerk/clerk-expo';
 
-const index = () => {
+const Home = () => {
+
     return (
         <View>
-            <Text>index</Text>
+            <Header />
         </View>
     )
 }
 
-export default index
+
+export default Home

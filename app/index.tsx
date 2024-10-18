@@ -6,27 +6,12 @@ import { useUser } from '@clerk/clerk-expo'
 
 const index = () => {
     const { user } = useUser();
-    console.log('user', user);
-    const rootNavigationStack = useRootNavigationState();
-    // useEffect(() => {
-    //     checkNavigated();
-    // }, [])
+    // console.log('user', user);
 
-    // const checkNavigated = () => {
-    //     // if (!rootNavigationStack.key) { return null }
-    //     if (!rootNavigationStack || !rootNavigationStack.key) {
-    //         return null;
-    //     }
-    // }
-    return (
+    if (user) return <Redirect href={'/(tabs)'} />
+    return <Redirect href={'/login'} />
 
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            {
-                user ? <Redirect href={'/(tabs)'} /> :
-                    <Redirect href={'/login'} />
-            }
-        </View>
-    )
+
 }
 
 
