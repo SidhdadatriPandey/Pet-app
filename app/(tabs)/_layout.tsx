@@ -16,5 +16,4 @@ const _layout = () => {
     </Tabs>
   )
 }
-
 export default _layout
