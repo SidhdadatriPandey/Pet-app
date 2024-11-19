@@ -59,8 +59,8 @@ const PetListByCategory = () => {
         contentContainerStyle={{ justifyContent: 'space-between', width: '100%', marginTop: 0, }}
         data={petList}
         numColumns={2}
-        refreshing={loader}
-        onRefresh={() => getPetList('Dogs')}
+        // refreshing={false}
+        // onRefresh={() => getPetList('Dogs')}
         showsVerticalScrollIndicator={false}
         // horizontal={true}
         renderItem={({ item, index }) => (

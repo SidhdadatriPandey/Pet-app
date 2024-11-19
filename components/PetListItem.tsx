@@ -28,31 +28,33 @@ import { router } from 'expo-router';
 const PetListItem = ({ pet }: any) => {
   return (
     <TouchableOpacity
-    onPress={()=>{router.push({
-      pathname:'/pet-details',
-      params:pet
-    })}} 
-    style={{
-      width:'47%',
-      alignItems: 'center',
-      backgroundColor: '#f5f5f5',
-      borderRadius: wp('4%'),
-      padding: hp('1%'),
-      margin: wp('2%'),
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.1,
-      shadowRadius: 4,
-      elevation: 2,
-    }}>
-      <Image 
-        source={{ uri: pet.imageUrl }} 
+      onPress={() => {
+        router.push({
+          pathname: '/pet-details',
+          params: pet
+        })
+      }}
+      style={{
+        width: '47%',
+        alignItems: 'center',
+        backgroundColor: '#f5f5f5',
+        borderRadius: wp('4%'),
+        padding: hp('1%'),
+        margin: wp('2%'),
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+        elevation: 2,
+      }}>
+      <Image
+        source={{ uri: pet.imageUrl }}
         style={{
           height: hp('20%'),
           width: '100%',
           resizeMode: 'stretch',
           borderRadius: wp('4%'),
-        }} 
+        }}
       />
       <Text style={{
         fontSize: wp('4.5%'),

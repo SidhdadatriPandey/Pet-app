@@ -1,23 +1,24 @@
-import { View, Text } from 'react-native'
+import { View, Text, Image } from 'react-native'
 import React, { useEffect } from 'react'
 import { useLocalSearchParams, useNavigation } from 'expo-router'
+import AntDesign from '@expo/vector-icons/AntDesign';
+import PetSubInfo from '@/components/PetDetails/PetSubInfo';
 
-const index = () => {
-    // console.log('pet',pet)
-    const pet=useLocalSearchParams();
-    const navigation=useNavigation()
-      console.log('pet',pet)
-    useEffect(()=>{
-        navigation.setOptions({
-            headerTransparent:true,
-            headerTitle:''
-        })
-    },[])
+const PetInfo = () => {
+  const pet = useLocalSearchParams();
+  const navigation = useNavigation()
+  useEffect(() => {
+    navigation.setOptions({
+      headerTransparent: true,
+      headerTitle: ''
+    })
+  }, [])
   return (
     <View>
-      <Text>index</Text>
+      <PetInfo pet={pet} />
+      <PetSubInfo />
     </View>
   )
 }
 
-export default index
+export default PetInfo
